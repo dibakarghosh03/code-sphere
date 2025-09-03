@@ -6,13 +6,25 @@ export const getUser = async (req, res) => {
     try{
         const userId = req.user.id;
         const user = await User.findById(userId).populate("rooms");
-        user.password = undefined;
-        
-        return res.status(200).json({
-            success: true,
-            message: "User fetched successfully",
-            user
-        })
+        if(user) {
+            user.password = undefined;
+
+            return res.status(200).json({
+                success: true,
+                message: "User fetched successfully",
+                user
+            })
+        } else {
+            res.clearCookie("token", {
+                httpOnly: true,
+                sameSite: "none",
+                secure: true,
+            })
+            return res.status(400).json({
+                success: false,
+                message: "User not found",
+            })
+        }
     }catch(error){
         console.log("Error in getUser: ", error);
     }

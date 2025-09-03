@@ -28,7 +28,7 @@ const app = express();
 const server = createServer(app);
 const io = new Server(server, {
     cors: {
-        origin: 'https://code-sphere-editor.vercel.app',
+        origin: process.env.FRONTEND_URL,
         credentials: true
     }
 });
@@ -37,7 +37,7 @@ initSocket(io);
 
 app.use(cookieParser());
 app.use(cors({
-    origin: "https://code-sphere-editor.vercel.app",
+    origin: process.env.FRONTEND_URL,
     credentials: true
 }));
 app.use(express.json({ limit: '10mb' }));

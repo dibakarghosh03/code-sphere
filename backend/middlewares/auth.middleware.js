@@ -12,6 +12,11 @@ const appAuthMiddleware = async (req, res, next) => {
 
         const decoded = jwt.verify(token, process.env.JWT_SECRET);
         if(!decoded) {
+            res.clearCookie('token', {
+                httpOnly: true,
+                sameSite: "none",
+                secure: true,
+            });
             return res.status(401).json({
                 success: false,
                 message: 'Unauthorized'
