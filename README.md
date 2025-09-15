@@ -36,11 +36,11 @@
 ## 🚀 **Installation and Setup**
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/CodeSphere-codeEditor.git
+   git clone https://github.com/dibakarghosh03/code-sphere.git
 
 2. Navigate into the project directory:
    ```bash
-   cd CodeSphere-codeEditor 
+   cd code-sphere
 
 3. Run Frontend:  
    ```bash
@@ -60,7 +60,7 @@
 ---   
 
 ## 🌐 Live Demo  
-Experience CodeSphere live: [CodeSphere Live](https://code-sphere-editor.vercel.app/)
+Experience CodeSphere live: [CodeSphere Live](https://codesphere-editor.vercel.app/)
 
 ---
 
